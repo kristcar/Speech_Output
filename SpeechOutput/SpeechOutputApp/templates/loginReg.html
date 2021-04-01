@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team Spot</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link href="{% static '/img/favicon.png' %}" rel="icon" />
+
+  </head>
+  <body>
+    <div class="container">
+      <div id="message_block">
+        {% if messages %}
+        <class="messages">
+          {% for message in messages %}
+          <p {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+            {{ message }}
+          </p>
+          {% endfor %}
+        
+        {% endif %}
+      </div>
+
+      <img
+        src="{% static '/img/TeamSpotLogo.png' %}"
+        alt="Team Spot Logo"
+        class="login_logo d-flex mx-auto"
+      />
+
+      <div class="login_registration d-flex justify-content-center">
+        <div class="form-group mx-4 align-self-baseline" id="login">
+          <h2>Login</h2>
+          <form action="/login" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" name="email" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" name="password" class="form-control" />
+            </div>
+            <div class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-info">Login</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="form-group mx-4" id="register">
+          <h2>Register</h2>
+          <form action="/register" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="first_name">First Name</label>
+              <input type="text" name="first_name" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="last_name">Last Name</label>
+              <input type="text" name="last_name" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" name="email" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" name="password" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="conf_password">Confirm Password</label>
+              <input
+                type="password"
+                name="conf_password"
+                class="form-control"
+              />
+            </div>
+            <div class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-info">Register</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="demo d-flex justify-content-center mb-4">
+        <button type="submit" class="btn mx-2 btn-info">Demo User</button>
+        <button type="submit" class="btn mx-2 btn-info">Demo Admin</button>
+      </div>
+    </div>
+  </body>
+</html>
