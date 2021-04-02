@@ -15,5 +15,33 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <link href="{% static '/img/favicon.png' %}" rel="icon" />
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <div class="header">
+        <img
+          src="{% static '/img/MyVoiceLogo.png' %}"
+          alt="My Voice Logo"
+          class="header_login_logo"
+        />
+        <h5>Welcome {{current_user.first_name}}!</h5>
+        <button type="button" class="btn btn-link">Logout</button>
+      </div>
+
+      <div class="speech_items">
+        <h6>Tap an Item to Speak.</h6>
+        <div class="card" style="width: 150px; height: 150px">
+          <a href="/home">
+            <img
+              class="card-img-top"
+              src="{% static '/speech_items/pizza.jpg' %}"
+              alt="Pizza"
+            />
+          </a>
+          <div class="card-body">
+            <p class="card-text mx-4">Pizza</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

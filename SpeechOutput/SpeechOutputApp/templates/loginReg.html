@@ -19,6 +19,13 @@
   </head>
   <body>
     <div class="container">
+
+      <img
+        src="{% static '/img/MyVoiceLogo.png' %}"
+        alt="My Voice Logo"
+        class="login_logo d-flex mx-auto mb-4"
+      />
+
       <div id="message_block">
         {% if messages %}
         <class="messages">
@@ -30,12 +37,6 @@
         
         {% endif %}
       </div>
-
-      <img
-        src="{% static '/img/TeamSpotLogo.png' %}"
-        alt="Team Spot Logo"
-        class="login_logo d-flex mx-auto"
-      />
 
       <div class="login_registration d-flex justify-content-center">
         <div class="form-group mx-4 align-self-baseline" id="login">
@@ -51,7 +52,7 @@
               <input type="password" name="password" class="form-control" />
             </div>
             <div class="d-flex justify-content-center">
-              <button type="submit" class="btn btn-info">Login</button>
+              <button type="submit" class="btn btn-success">Login</button>
             </div>
           </form>
         </div>
@@ -85,14 +86,10 @@
               />
             </div>
             <div class="d-flex justify-content-center">
-              <button type="submit" class="btn btn-info">Register</button>
+              <button type="submit" class="btn btn-success">Register</button>
             </div>
           </form>
         </div>
-      </div>
-      <div class="demo d-flex justify-content-center mb-4">
-        <button type="submit" class="btn mx-2 btn-info">Demo User</button>
-        <button type="submit" class="btn mx-2 btn-info">Demo Admin</button>
       </div>
     </div>
   </body>

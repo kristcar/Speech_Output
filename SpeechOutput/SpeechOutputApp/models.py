@@ -1,3 +1,66 @@
 from django.db import models
+import re
+from datetime import datetime
 
-# Create your models here.
+
+#*********************LOGIN AND REGISTRATION***********************
+class UserManager(models.Manager):
+  def register_validator(self, postData):
+    errors = {}
+    EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
+
+    if not EMAIL_REGEX.match(postData['email']):
+      errors['email'] = "Invalid email address format"
+
+    if len(postData['first_name']) < 2:
+      errors['first_name_short'] = "First name must be at least 2 characters"
+
+    if len(postData['last_name']) < 2:
+      errors['last_name_short'] = "Last name must be at least 2 characters"
+      
+    if len(postData['password']) < 8:
+      errors['password_short'] = "Password must be at least 8 characters"
+
+    if postData['password'] != postData['conf_password']:
+      errors['match'] = "Passwords do not match"
+
+    for user in User.objects.all():
+      if user.email == postData['email']:
+        errors['email_exists'] = "An account with this email address exists already."
+
+    if len(postData['first_name']) ==0:
+      errors['first_name_empty'] = "First name cannot be left empty"
+    if len(postData['last_name']) ==0:
+      errors['last_name_empty'] = "Last name cannot be left empty"
+    if len(postData['email']) == 0 :
+      errors['email_empty'] = "Email cannot be left empty"
+    if len(postData['password']) == 0 :
+      errors['password_empty'] = "Password cannot be left empty"
+    if len(postData['conf_password']) == 0 :
+      errors['conf_password_empty'] = "Confirm Password cannot be left empty"
+      
+    return errors
+
+  def login_validator(self, postData):
+    errors = {}
+    EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
+
+    if not EMAIL_REGEX.match(postData['email']):
+      errors['login_email'] = "Invalid email address format"
+
+    if len(postData['email']) == 0 :
+      errors['login_email_empty'] = "Email cannot be left empty"
+    if len(postData['password']) == 0 :
+      errors['login_password_empty'] = "Password cannot be left empty"
+
+    return errors
+#************************END LOGIN AND REGISTRATION*******************
+
+class User(models.Model):
+  first_name = models.TextField()
+  last_name = models.TextField()
+  email = models.TextField()
+  password = models.TextField()
+  created_at = models.DateTimeField(auto_now_add=True)
+  updated_at = models.DateTimeField(auto_now = True)
+  objects = UserManager()

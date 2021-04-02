@@ -1,0 +1,63 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+#message_block {
+  display: block;
+  margin-top: 20px;
+  color: red;
+}
+
+#register,
+#login {
+  display: inline-block;
+  vertical-align: top;
+  justify-content: space-evenly;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: rgb(140, 159, 245);
+}
+
+#register h2,
+#login h2 {
+  text-align: center;
+}
+
+.login_logo {
+  align-items: center;
+  display: block;
+  width: 180px;
+}
+
+.login_registration {
+  vertical-align: top;
+  align-items: center;
+}
+
+#sidebar_logo {
+  width: 150px;
+}
+
+.sidebar {
+  display: inline-block;
+  background-color: rgb(217, 217, 217);
+}
+
+.content {
+  display: inline-block;
+}
+
+.header img,
+.header button,
+.header h5 {
+  display: inline-block;
+}
+
+.header_login_logo {
+  width: 100px;
+}
+
+.speech-items img {
+  width: 150px;
+}
