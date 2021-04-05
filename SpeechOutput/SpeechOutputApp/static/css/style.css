@@ -61,3 +61,13 @@
 .speech-items img {
   width: 150px;
 }
+
+.footer {
+  display: block;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
