@@ -23,20 +23,36 @@
           alt="My Voice Logo"
           class="header_login_logo"
         />
-        <button type="button" class="btn btn-link">Back</button>
+        <a href = "/home">
+        <button type="button" class="btn btn-link">Back</button></a>
       </div>
-      <h5>{{current_user.first_name}}, type to speak!</h5>
-      <div class="form-group">
-        <textarea
-          name=""
-          id="text-input"
-          class="form-control"
-          placeholder="Type here..."
-        ></textarea>
-        <button type="button" class="btn btn-success btn-block mt-2">
-          Speak
-        </button>
+      <h5 >{{current_user.first_name}}, type to speak!</h5>
+      <div class = "row">
+        <div class = "col-md-6 mx-auto">
+          <form class = "mb-5">
+            <div class="form-group">
+              <textarea
+                name=""
+                id="text-input"
+                class="form-control mb-2 "
+                placeholder="Type here..."
+              ></textarea>
+            </div>
+            <div class = "form-group">
+              <p>Change voice:</p>
+              <select id="voice-select" class="form-control"></select>
+            </div>
+            <button type="submit" class="btn btn-success btn-block mt-2">
+              Speak
+            </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
+    
+
+    <script src="{% static '/js/speechSynthesis.js' %}"></script>
+
   </body>
 </html>
