@@ -7,5 +7,6 @@ urlpatterns = [
   path('login', views.login),
   path('logout', views.logout),
   path('home', views.home),
+  path('typeToSpeak', views.typeToSpeak),
   path('<url>', views.catch_all),
 ]

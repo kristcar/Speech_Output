@@ -23,29 +23,19 @@
           alt="My Voice Logo"
           class="header_login_logo"
         />
-        <h5>Welcome {{current_user.first_name}}!</h5>
-        <a href="/typeToSpeak">
-          <button type="button" class="btn btn-primary">
-            Type to Speak
-          </button></a
-        >
-        <button type="button" class="btn btn-link">Logout</button>
+        <button type="button" class="btn btn-link">Back</button>
       </div>
-
-      <div class="speech_items">
-        <h6>Tap an Item to Speak.</h6>
-        <div class="card" style="width: 150px; height: 150px">
-          <a href="/home">
-            <img
-              class="card-img-top"
-              src="{% static '/speech_items/pizza.jpg' %}"
-              alt="Pizza"
-            />
-          </a>
-          <div class="card-body">
-            <p class="card-text mx-4">Pizza</p>
-          </div>
-        </div>
+      <h5>{{current_user.first_name}}, type to speak!</h5>
+      <div class="form-group">
+        <textarea
+          name=""
+          id="text-input"
+          class="form-control"
+          placeholder="Type here..."
+        ></textarea>
+        <button type="button" class="btn btn-success btn-block mt-2">
+          Speak
+        </button>
       </div>
     </div>
   </body>
