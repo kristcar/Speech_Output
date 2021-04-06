@@ -58,12 +58,14 @@
   width: 100px;
 }
 
-.speech-items img {
-  width: 150px;
+.speech_items {
+  display: inline-block;
+  text-align: center;
 }
 
 .footer {
-  display: block;
+  text-align: center;
+  margin: 20px;
 }
 
 .header {

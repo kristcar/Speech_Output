@@ -31,23 +31,65 @@
         >
         <button type="button" class="btn btn-link">Logout</button>
       </div>
-
-      <div class="hungry speech_items">
-        <h6>Tap an Item to Speak.</h6>
-        <div class="card" style="width: 150px; height: 150px">
-          <a href="/home">
-            <img
-              class="card-img-top"
-              src="{% static '/speech_items/pizza.png' %}"
-              alt="Hungry"
-            />
-          </a>
-          <div class="card-body">
-            <p class="card-text">I'm Hungry</p>
+      <h6>Tap an Item to Speak.</h6>
+      <div class="picture_section">
+        <div class="speech_items">
+          <div class="card" style="width: 10rem">
+            <a href="/home">
+              <img
+                class="card-img-top"
+                src="{% static '/speech_items/pizza.png' %}"
+                alt="Pizza - I'm Hungry"
+              />
+            </a>
+            <div class="card-body">
+              <p class="card-text">I'm Hungry</p>
+            </div>
+          </div>
+        </div>
+        <div class="speech_items">
+          <div class="card" style="width: 10rem">
+            <a href="/home">
+              <img
+                class="card-img-top"
+                src="{% static '/speech_items/water.png' %}"
+                alt="Water Bottle - I'm Thirsty"
+              />
+            </a>
+            <div class="card-body">
+              <p class="card-text">I'm Thirsty</p>
+            </div>
+          </div>
+        </div>
+        <div class="speech_items">
+          <div class="card" style="width: 10rem">
+            <a href="/home">
+              <img
+                class="card-img-top"
+                src="{% static '/speech_items/sick.png' %}"
+                alt="Woman Holding Head - I'm Sick"
+              />
+            </a>
+            <div class="card-body">
+              <p class="card-text">I'm Sick</p>
+            </div>
+          </div>
+        </div>
+        <div class="speech_items">
+          <div class="card" style="width: 10rem">
+            <a href="/home">
+              <img
+                class="card-img-top"
+                src="{% static '/speech_items/help.png' %}"
+                alt="Arms connecting - I need help"
+              />
+            </a>
+            <div class="card-body">
+              <p class="card-text">I need help</p>
+            </div>
           </div>
         </div>
       </div>
-      {% comment %}
       <div class="footer">
         <a href="#">
           <button type="button" class="btn btn-primary">Add</button>
@@ -56,7 +98,6 @@
           <button type="button" class="btn btn-primary">Edit</button>
         </a>
       </div>
-      {% endcomment %}
     </div>
     <script src="{% static '/js/speechSynthesis.js' %}"></script>
   </body>
