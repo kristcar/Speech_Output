@@ -39,21 +39,26 @@
 
       
 
-      <div>
-          <button class ="btn btn-success" id="play">Speak</button>
-          <button class ="btn btn-success" id="pause">Pause</button>
-          <button class ="btn btn-success" id="stop">Stop</button>
-      </div>
+      
       <div class = "speech_item">
         <img
-              class="card-img-top"
+              class="card-img-top test-image"
               src="{% static '/speech_items/pizza.png' %}"
               alt="Pizza - I'm Hungry"
-              id = "test-image"
           />
-        <p>I am hungry</p>
+        <button class ="btn btn-light" id="play">I am hungry</button>
       </div>
 
+      <div class = "speech_item">
+        <img
+              class="card-img-top test-image "
+              src="{% static '/speech_items/water.png' %}"
+              alt="Water - I'm Thirsty"
+          />
+        <button class ="btn btn-light" id="play">I am thirsty</button>
+      </div>
+        
+  
 
       <!-- <form class = "mb-5">
         <div class="speech_item form-group">

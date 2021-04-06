@@ -73,7 +73,6 @@
   justify-content: space-between;
 }
 
-#test-image {
+.test-image {
   width: 150px;
-  height: 150px;
 }

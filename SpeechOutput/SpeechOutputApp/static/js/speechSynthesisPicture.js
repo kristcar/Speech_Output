@@ -1,16 +1,40 @@
 if ("speechSynthesis" in window) {
-  var synth = speechSynthesis;
+  const synth = window.speechSynthesis;
   var flag = false;
+
+  //***************Voices***************
+  const voiceSelect = document.querySelector("#voice-select");
+
+  let voices = [];
+
+  const getVoices = () => {
+    voices = synth.getVoices();
+
+    // Loop through voices and create an option for each one
+    voices.forEach((voice) => {
+      // Create option element
+      const option = document.createElement("option");
+      // Fill option with voice and language
+      option.textContent = voice.name + "(" + voice.lang + ")";
+
+      // Set needed option attributes
+      option.setAttribute("data-lang", voice.lang);
+      option.setAttribute("data-name", voice.name);
+      voiceSelect.appendChild(option);
+    });
+  };
+
+  getVoices();
+  if (synth.onvoiceschanged !== undefined) {
+    synth.onvoiceschanged = getVoices;
+  }
+  // ***************End Voices***************
 
   /* references to the buttons */
   var playEle = document.querySelector("#play");
-  var pauseEle = document.querySelector("#pause");
-  var stopEle = document.querySelector("#stop");
 
   /* click event handlers for the buttons */
   playEle.addEventListener("click", onClickPlay);
-  pauseEle.addEventListener("click", onClickPause);
-  stopEle.addEventListener("click", onClickStop);
 
   function onClickPlay() {
     if (!flag) {
@@ -18,7 +42,7 @@ if ("speechSynthesis" in window) {
       utterance = new SpeechSynthesisUtterance(
         document.querySelector(".speech_item").textContent
       );
-      utterance.voice = synth.getVoices()[0];
+
       utterance.onend = function () {
         flag = false;
       };
@@ -29,19 +53,4 @@ if ("speechSynthesis" in window) {
       synth.resume();
     }
   }
-  function onClickPause() {
-    if (synth.speaking && !synth.paused) {
-      /* pause narration */
-      synth.pause();
-    }
-  }
-  function onClickStop() {
-    if (synth.speaking) {
-      /* stop narration */
-      /* for safari */
-      flag = false;
-      synth.cancel();
-    }
-  }
 }
-Create;
