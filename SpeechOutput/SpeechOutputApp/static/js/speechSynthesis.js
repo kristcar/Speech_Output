@@ -8,8 +8,6 @@ const textForm = document.querySelector("form");
 const textInput = document.querySelector("#text-input");
 const voiceSelect = document.querySelector("#voice-select");
 
-const body = document.querySelector("body");
-
 //Browser identifier
 // Firefox 1.0+
 var isFirefox = typeof InstallTrigger !== "undefined";
@@ -36,8 +34,6 @@ const getVoices = () => {
     voiceSelect.appendChild(option);
   });
 };
-
-//Line 35, 36 causes voice list duplication
 
 getVoices();
 if (synth.onvoiceschanged !== undefined) {
@@ -87,8 +83,6 @@ const speak = () => {
       }
     });
 
-    // Set pitch and rate
-
     // Speak
     synth.speak(speakText);
   }
@@ -105,5 +99,3 @@ textForm.addEventListener("submit", (e) => {
 
 // Voice select change for type to speak
 voiceSelect.addEventListener("change", (e) => speak());
-
-//On click for picture book
