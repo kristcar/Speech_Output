@@ -35,6 +35,7 @@ if ("speechSynthesis" in window) {
   if (synth.onvoiceschanged !== undefined) {
     synth.onvoiceschanged = getVoices;
   }
+
   // ***************End Voices***************
 
   //Item to Play:
@@ -44,14 +45,27 @@ if ("speechSynthesis" in window) {
   function onClickPlay() {
     if (!flag) {
       flag = true;
-      utterance = new SpeechSynthesisUtterance(
-        document.querySelector(".speech_item").textContent
+      speakText = new SpeechSynthesisUtterance(
+        document.querySelector(".speech_item p").textContent
       );
 
-      utterance.onend = function () {
+      // Selected voice
+      const selectedVoice = voiceSelect.selectedOptions[0].getAttribute(
+        "data-name"
+      );
+
+      // Loop through voices
+      voices.forEach((voice) => {
+        if (voice.name === selectedVoice) {
+          speakText.voice = voice;
+        }
+      });
+
+      speakText.onend = function () {
         flag = false;
       };
-      synth.speak(utterance);
+
+      synth.speak(speakText);
     }
   }
 }
