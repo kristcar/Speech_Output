@@ -1,3 +1,10 @@
+//Browser identifier
+// Firefox 1.0+
+var isFirefox = typeof InstallTrigger !== "undefined";
+
+// Chrome 1+
+var isChrome = !!window.chrome && !!window.chrome.webstore;
+
 if ("speechSynthesis" in window) {
   const synth = window.speechSynthesis;
   var flag = false;
@@ -30,10 +37,8 @@ if ("speechSynthesis" in window) {
   }
   // ***************End Voices***************
 
-  /* references to the buttons */
-  var playEle = document.querySelector("#play");
-
-  /* click event handlers for the buttons */
+  //Item to Play:
+  var playEle = document.querySelector(".speech_item img");
   playEle.addEventListener("click", onClickPlay);
 
   function onClickPlay() {
@@ -47,10 +52,6 @@ if ("speechSynthesis" in window) {
         flag = false;
       };
       synth.speak(utterance);
-    }
-    if (synth.paused) {
-      /* unpause/resume narration */
-      synth.resume();
     }
   }
 }

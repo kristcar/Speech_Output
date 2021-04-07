@@ -37,59 +37,23 @@
       </div>
       <h6>Click an Item to Speak.</h6>
 
-      
 
-      
-      <div class = "speech_item">
-        <img
-              class="card-img-top test-image"
-              src="{% static '/speech_items/pizza.png' %}"
-              alt="Pizza - I'm Hungry"
-          />
-        <button class ="btn btn-light" id="play">I am hungry</button>
-      </div>
-
-      <div class = "speech_item">
-        <img
-              class="card-img-top test-image "
-              src="{% static '/speech_items/water.png' %}"
-              alt="Water - I'm Thirsty"
-          />
-        <button class ="btn btn-light" id="play">I am thirsty</button>
-      </div>
-        
-  
-
-      <!-- <form class = "mb-5">
-        <div class="speech_item form-group">
-          <img
-              class="card-img-top"
-              src="{% static '/speech_items/pizza.png' %}"
-              alt="Pizza - I'm Hungry"
-          />
-          <textarea
-                id="text-input"
-                class="form-control mb-2 "
-              ></textarea>
+      <div class="speech_item" style="width: 6rem;">
+        <img class="card-img-top" src="{% static '/speech_items/pizza.png' %}" alt="Pizza - I'm Hungry">
+        <div class="card-body">
+          <p class="card-text">I am hungry</p>
         </div>
-        <button type="submit" class="btn btn-success ">
-          Speak
-        </button>
-      </form> -->
+      </div>
 
-      <!-- <div class="picture_section">
-        <div class="speech_items">
-          <div class="card" style="width: 10rem">
-            <img
-              class="card-img-top"
-              src="{% static '/speech_items/pizza.png' %}"
-              alt="Pizza - I'm Hungry"
-              id="I'm Hungry"
-            />
-            <button type="submit" class="btn btn-light">I'm Hungry</button>
-            <p class="card-text">I'm Hungry</p>
-          </div>
-        </div> -->
+      <div class="speech_item" style="width: 6rem;">
+        <img class="card-img-top" src="{% static '/speech_items/water.png' %}" alt="Water - I'm Thirsty">
+        <div class="card-body">
+          <p class="card-text">I am thirsty</p>
+        </div>
+      </div>
+
+        
+
 
       </div>
       <div class="footer">
