@@ -43,23 +43,22 @@ if ("speechSynthesis" in window) {
   // Item to Play:
   var playElement = document.querySelectorAll(".speech_item");
 
-  playElement.forEach(function (currentValue, currentIndex, speechItem) {
-    currentValue.addEventListener("click", onClickPlay);
+  playElement.forEach(function (currentValue) {
+    currentValue.addEventListener("click", onClickPlay(currentValue));
   });
 
-  // for (item in playElement) {
-  //   console.log(typeof item);
-  //   item.addEventListener("click", onClickPlay);
-  //   console.log("clicked element");
-  // }
+  // playElement.forEach(function (currentValue, currentIndex, speechItem) {
+  //   currentValue.addEventListener("click", onClickPlay);
+  // });
 
-  //works with querySelector:
-  // playElement.addEventListener("click", onClickPlay);
-
-  function onClickPlay() {
+  function onClickPlay(currentValue) {
     speakText = new SpeechSynthesisUtterance(
-      document.querySelector(".speech_item p").textContent
+      currentValue.querySelector("p").textContent
     );
+
+    // SpeechSynthesisUtterance(
+    //   document.querySelector(".speech_item p").textContent
+    // );
 
     // Selected voice
     const selectedVoice = voiceSelect.selectedOptions[0].getAttribute(
