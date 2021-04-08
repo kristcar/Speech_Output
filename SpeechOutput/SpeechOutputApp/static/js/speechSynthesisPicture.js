@@ -1,3 +1,5 @@
+// //Utilizing the Web Speech API
+
 //Browser identifier
 // Firefox 1.0+
 var isFirefox = typeof InstallTrigger !== "undefined";
@@ -38,34 +40,38 @@ if ("speechSynthesis" in window) {
 
   // ***************End Voices***************
 
-  //Item to Play:
-  var playEle = document.querySelector(".speech_item img");
-  playEle.addEventListener("click", onClickPlay);
+  // Item to Play:
+  var playElement = document.querySelectorAll(".speech_item");
+
+  playElement.forEach(function (currentValue, currentIndex, speechItem) {
+    currentValue.addEventListener("click", onClickPlay);
+  });
+
+  // for (item in playElement) {
+  //   console.log(typeof item);
+  //   item.addEventListener("click", onClickPlay);
+  //   console.log("clicked element");
+  // }
+
+  //works with querySelector:
+  // playElement.addEventListener("click", onClickPlay);
 
   function onClickPlay() {
-    if (!flag) {
-      flag = true;
-      speakText = new SpeechSynthesisUtterance(
-        document.querySelector(".speech_item p").textContent
-      );
+    speakText = new SpeechSynthesisUtterance(
+      document.querySelector(".speech_item p").textContent
+    );
 
-      // Selected voice
-      const selectedVoice = voiceSelect.selectedOptions[0].getAttribute(
-        "data-name"
-      );
+    // Selected voice
+    const selectedVoice = voiceSelect.selectedOptions[0].getAttribute(
+      "data-name"
+    );
 
-      // Loop through voices
-      voices.forEach((voice) => {
-        if (voice.name === selectedVoice) {
-          speakText.voice = voice;
-        }
-      });
-
-      speakText.onend = function () {
-        flag = false;
-      };
-
-      synth.speak(speakText);
-    }
+    // Loop through voices
+    voices.forEach((voice) => {
+      if (voice.name === selectedVoice) {
+        speakText.voice = voice;
+      }
+    });
+    synth.speak(speakText);
   }
 }
