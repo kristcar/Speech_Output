@@ -35,53 +35,112 @@
         <p>Select voice:</p>
         <select id="voice-select" class="form-control"></select>
       </div>
-      <h6>Click an Item to Speak.</h6>
+      <h5>Click an Item to Speak.</h5>
 
       <div class="speech_items_all">
-        <div class="speech_item m-2" style="width: 6rem">
+        <h6 class = "mt-3">Common Topics:</h6>
+        <div class="speech_item m-2 align-top" style="width: 6rem">
           <img
             class="card-img-top"
             src="{% static '/speech_items/pizza.png' %}"
             alt="Slice of pizza"
           />
           <div class="card-body">
-            <p class="card-text">I am hungry</p>
+            <p class="card-text text-center">I am hungry</p>
           </div>
         </div>
 
-        <div class="speech_item m-2" style="width: 6rem">
+        <div class="speech_item m-2 align-top" style="width: 6rem">
           <img
             class="card-img-top"
             src="{% static '/speech_items/water.png' %}"
             alt="Water Bottle"
           />
           <div class="card-body">
-            <p class="card-text">I am thirsty</p>
+            <p class="card-text text-center">I am thirsty</p>
           </div>
         </div>
 
-        <div class="speech_item m-2" style="width: 6rem">
-          <img
-            class="card-img-top"
-            src="{% static '/speech_items/break.png' %}"
-            alt="Boy sitting in chair"
-          />
-          <div class="card-body">
-            <p class="card-text">I want a break</p>
-          </div>
-        </div>
-
-        <div class="speech_item m-2" style="width: 6rem">
+        <div class="speech_item m-2 align-top" style="width: 6rem">
           <img
             class="card-img-top"
             src="{% static '/speech_items/help.png' %}"
             alt="Arms clasped together"
           />
           <div class="card-body">
-            <p class="card-text">I need help</p>
+            <p class="card-text text-center">I need help</p>
           </div>
         </div>
-      </div>
+
+        <div class="speech_item m-2 align-top" style="width: 6rem">
+          <img
+            class="card-img-top"
+            src="{% static '/speech_items/sick.png' %}"
+            alt="Woman holding head"
+          />
+          <div class="card-body">
+            <p class="card-text text-center">I feel sick</p>
+          </div>
+        </div>
+
+        <div class="speech_item m-2 align-top" style="width: 6rem">
+          <img
+            class="card-img-top"
+            src="{% static '/speech_items/break.png' %}"
+            alt="Boy sitting in chair"
+          />
+          <div class="card-body">
+            <p class="card-text text-center">I want a break</p>
+          </div>
+        </div>
+
+        <div class="speech_item m-2 align-top" style="width: 6rem">
+          <img
+            class="card-img-top"
+            src="{% static '/speech_items/outside.png' %}"
+            alt="Sun shining"
+          />
+          <div class="card-body">
+            <p class="card-text text-center">I want to go outside</p>
+          </div>
+        </div>
+
+        <div class="speech_item m-2 align-top" style="width: 6rem">
+          <img
+            class="card-img-top"
+            src="{% static '/speech_items/yes.png' %}"
+            alt="Yes"
+          />
+          <div class="card-body">
+            <p class="card-text text-center">Yes</p>
+          </div>
+        </div>
+
+        <div class="speech_item m-2 align-top" style="width: 6rem">
+          <img
+            class="card-img-top"
+            src="{% static '/speech_items/no.png' %}"
+            alt="No"
+          />
+          <div class="card-body">
+            <p class="card-text text-center">No</p>
+          </div>
+        </div>
+
+        <div class="speech_item m-2 align-top" style="width: 6rem">
+          <img
+            class="card-img-top"
+            src="{% static '/speech_items/restroom.png' %}"
+            alt="toilet"
+          />
+          <div class="card-body">
+            <p class="card-text text-center">I need to go to the restroom</p>
+          </div>
+        </div>
+
+        
+
+      <h6>Custom Topics:</h6>
 
       <div class="footer">
         <a href="#">
@@ -91,6 +150,9 @@
           <button type="button" class="btn btn-primary">Edit</button>
         </a>
       </div>
+
+
+
     </div>
     <script src="{% static '/js/speechSynthesisPicture.js' %}"></script>
   </body>

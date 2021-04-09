@@ -9,7 +9,6 @@ var isChrome = !!window.chrome && !!window.chrome.webstore;
 
 if ("speechSynthesis" in window) {
   const synth = window.speechSynthesis;
-  var flag = false;
 
   //***************Voices***************
   const voiceSelect = document.querySelector("#voice-select");
@@ -55,10 +54,6 @@ if ("speechSynthesis" in window) {
     speakText = new SpeechSynthesisUtterance(
       currentValue.querySelector(".speech_item p").textContent
     );
-
-    // SpeechSynthesisUtterance(
-    //   currentValue.querySelector("p").textContent
-    // );
 
     // Selected voice
     const selectedVoice = voiceSelect.selectedOptions[0].getAttribute(
