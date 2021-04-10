@@ -74,7 +74,9 @@ class SpeechManager(models.Manager):
       errors['name_long'] = "Name is too long"
     if len(postData['name']) == 0:
       errors['name_empty'] = "Name cannot be left empty"
-      
+
+
+# Image Validations: file extension, no image selected, no category selected
   # def get_available_image_extensions():
   #   try:
   #       from PIL import Image
@@ -86,11 +88,13 @@ class SpeechManager(models.Manager):
 
   #   def validate_image_file_extension(value):
   #       return FileExtensionValidator(allowed_extensions=get_available_image_extensions())(value)
-        return errors
+      return errors
 
 class Speech_Item(models.Model):
   name = models.CharField(max_length = 100);
-  category = models.CharField(max_length= 100);
+  # category = models.CharField(max_length= 100);
+  image = models.ImageField(null = False, blank = False); #mandatory
+  creator = models.ForeignKey(User, related_name = "user_speech_item", on_delete = models.CASCADE)
   created_at = models.DateTimeField(auto_now_add=True)
   updated_at = models.DateTimeField(auto_now = True)
   objects = SpeechManager()
