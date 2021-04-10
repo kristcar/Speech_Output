@@ -83,7 +83,26 @@ def edit(request):
     messages.error(request, "Please log in or register")
     return redirect('/')
   context = {
-    #all_speech_items
+    "all_speech_items": Speech_Item.objects.all(),
     "current_user": User.objects.get(id = request.session['user_id']),
   }
   return render(request, "edit.html", context)
+
+def create(request):
+  if "user_id" not in request.session: 
+    messages.error(request, "Please log in or register")
+    return redirect('/')
+
+  if request.method == "POST":
+    errors = Speech_Item.objects.speech_validator(request.POST)
+    if len(errors) > 0: 
+      for key, value in errors.items():
+        messages.error(request, value)
+      return redirect("/add")
+    else: 
+      item = Speech_Item.objects.create(
+        name = request.POST['item_name'], 
+        creator = User.objects.get(id = request.session['user_id']),
+        image = request.POST['image']
+        )
+      return redirect("/home")
