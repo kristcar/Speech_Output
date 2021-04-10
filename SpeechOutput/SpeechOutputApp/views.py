@@ -54,7 +54,7 @@ def catch_all(request, url):
   return redirect('/')
 
 
-def home(request):
+def pictureSpeak(request):
   if "user_id" not in request.session: 
     messages.error(request, "Please log in or register")
     return redirect('/')
