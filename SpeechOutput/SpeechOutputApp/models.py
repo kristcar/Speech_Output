@@ -1,6 +1,7 @@
 from django.db import models
 import re
 from datetime import datetime
+from django.core.exceptions import ValidationError
 
 
 #*********************LOGIN AND REGISTRATION***********************
@@ -64,3 +65,32 @@ class User(models.Model):
   created_at = models.DateTimeField(auto_now_add=True)
   updated_at = models.DateTimeField(auto_now = True)
   objects = UserManager()
+
+
+class SpeechManager(models.Manager):
+  def speech_validator(self, postData):
+    errors = {}
+    if len(postData['name']) > 100:
+      errors['name_long'] = "Name is too long"
+    if len(postData['name']) == 0:
+      errors['name_empty'] = "Name cannot be left empty"
+      
+  # def get_available_image_extensions():
+  #   try:
+  #       from PIL import Image
+  #   except ImportError:
+  #       return []
+  #   else:
+  #       Image.init()
+  #       return [ext.lower()[1:] for ext in Image.EXTENSION]
+
+  #   def validate_image_file_extension(value):
+  #       return FileExtensionValidator(allowed_extensions=get_available_image_extensions())(value)
+        return errors
+
+class Speech_Item(models.Model):
+  name = models.CharField(max_length = 100);
+  category = models.CharField(max_length= 100);
+  created_at = models.DateTimeField(auto_now_add=True)
+  updated_at = models.DateTimeField(auto_now = True)
+  objects = SpeechManager()
