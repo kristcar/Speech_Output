@@ -8,5 +8,7 @@ urlpatterns = [
   path('logout', views.logout),
   path('home', views.home),
   path('typeToSpeak', views.typeToSpeak),
+  path('add', views.add),
+  path('edit', views.edit),
   path('<url>', views.catch_all),
 ]

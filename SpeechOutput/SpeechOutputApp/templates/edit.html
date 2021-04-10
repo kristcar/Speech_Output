@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Voice</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link href="{% static '/img/favicon.png' %}" rel="icon" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header mb-4">
+        <img
+          src="{% static '/img/MyVoiceLogo.png' %}"
+          alt="My Voice Logo"
+          class="header_login_logo"
+        />
+        <h3>Welcome {{current_user.first_name}}!</h3>
+        <a href="/typeToSpeak">
+          <button type="button" class="btn btn-primary">
+            Type to Speak
+          </button></a
+        >
+        <button type="button" class="btn btn-link">Logout</button>
+      </div>
+
+      <h6>Choose an Item to Edit:</h6>
+
+      <!--  LOAD ALL THE CUSTOM SPEECH ITEMS
+        <div class="speech_item m-2 align-top" style="width: 6rem">
+          <img
+            class="card-img-top"
+            src="{% static '/speech_items/IMAGE_USER_UPLOADS.png' %}"
+            alt="SPEECH_ITEM_NAME"
+          />
+          <div class="card-body">
+            <p class="card-text text-center">SPEECH ITEM NAME</p>
+          </div>
+        </div> -->
+    </div>
+  </body>
+</html>

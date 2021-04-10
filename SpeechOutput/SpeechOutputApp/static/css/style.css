@@ -20,7 +20,8 @@
 }
 
 #register h2,
-#login h2 {
+#login h2,
+#add h2 {
   text-align: center;
 }
 
@@ -71,4 +72,12 @@
 
 .speech_item {
   display: inline-block;
+}
+
+#add {
+  display: inline-block;
+  vertical-align: top;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: rgb(140, 159, 245);
 }

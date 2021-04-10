@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <title>My Voice</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link href="{% static '/img/favicon.png' %}" rel="icon" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <img
+          src="{% static '/img/MyVoiceLogo.png' %}"
+          alt="My Voice Logo"
+          class="header_login_logo"
+        />
+        <a href = "/home">
+        <button type="button" class="btn btn-link">Back</button></a>
+      </div>
+      <div id="message_block">
+        {% if messages %}
+        <class="messages">
+          {% for message in messages %}
+          <p {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+            {{ message }}
+          </p>
+          {% endfor %}
+        
+        {% endif %}
+      </div>
+
+
+      <div class="add_items form-group  d-flex justify-content-center" id="add">
+        <form action="/create" method="POST">
+          {% csrf_token %}
+          <h2>Create a Speech Item</h2>
+          <div class="form-group ">
+            <label for="item_name">Name</label>
+            <input type="text" name="item_name" class="form-control" />
+          </div>
+          <div class="form-group ">
+            <label for="item_category">Category</label>
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+              <option selected></option>
+              <option value="food">Food and Drinks</option>
+              <option value="place">Places</option>
+              <option value="feeling">Emotion and Feelings</option>
+              <option value="feeling">People</option>
+              <option value="feeling">Fun and Games</option>
+              <option value="feeling">Other</option>
+            </select>
+          </div>
+          
+          <div class="mb-3">
+            <label for="formFile" class="form-label ">Upload a photo</label>
+            <input class="form-control" type="file" id="formFile">
+          </div>
+          <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-success">Add</button>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

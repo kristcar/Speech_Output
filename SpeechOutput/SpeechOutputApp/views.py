@@ -71,3 +71,19 @@ def typeToSpeak(request):
     "current_user": User.objects.get(id = request.session['user_id']),
   }
   return render(request,"typeToSpeak.html", context)
+
+def add(request):
+  if "user_id" not in request.session: 
+    messages.error(request, "Please log in or register")
+    return redirect('/')
+  return render(request, "add.html")
+
+def edit(request):
+  if "user_id" not in request.session: 
+    messages.error(request, "Please log in or register")
+    return redirect('/')
+  context = {
+    #all_speech_items
+    "current_user": User.objects.get(id = request.session['user_id']),
+  }
+  return render(request, "edit.html", context)
