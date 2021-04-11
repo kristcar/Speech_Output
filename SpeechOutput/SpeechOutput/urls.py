@@ -16,6 +16,10 @@ Including another URLconf
 
 from django.urls import path, include 
 
+from django.conf.urls.static import static 
+from SpeechOutput import settings
+
 urlpatterns = [
     path('', include('SpeechOutputApp.urls')),
-]
+] 
+# + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

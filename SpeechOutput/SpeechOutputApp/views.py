@@ -2,7 +2,8 @@ from django.shortcuts import redirect, render
 from .models import *
 from django.contrib import messages
 import bcrypt
-from django.db.models import Count
+import uuid 
+import boto3  
 
 #************************LOGIN AND REGISTRATION********************
 
@@ -103,6 +104,23 @@ def create(request):
       item = Speech_Item.objects.create(
         name = request.POST['item_name'], 
         creator = User.objects.get(id = request.session['user_id']),
-        image = request.POST['image']
         )
       return redirect("/home")
+
+def add_image(request, speech_item_id):
+  photo_file = request.FILES.get('photo-file')
+  #verify photo uploaded:
+  if photo_file: 
+    s3 = boto3.client('s3')
+    #generate unique key for s3 and keep image file extension
+    key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+    #if there is an error:
+    try:
+      s3.upload_fileobj(photo_file, BUCKET, key)
+      #build the URL string
+      url = f"{S3_BASE-URL}{BUCKET}/{key}"
+      #assign to speech item
+      Speech_Item.objects.create(url = url, speech_item_id = speech_item_id)
+    except: 
+      print("An error occurred uploading file ")
+  return redirect("/home")

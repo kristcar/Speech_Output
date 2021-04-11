@@ -93,8 +93,12 @@ class SpeechManager(models.Manager):
 class Speech_Item(models.Model):
   name = models.CharField(max_length = 100);
   # category = models.CharField(max_length= 100);
-  image = models.ImageField(null = False, blank = False); #mandatory
+  # image = models.ImageField(upload_to = "custom_img", null = False, blank = False);
   creator = models.ForeignKey(User, related_name = "user_speech_item", on_delete = models.CASCADE)
   created_at = models.DateTimeField(auto_now_add=True)
   updated_at = models.DateTimeField(auto_now = True)
   objects = SpeechManager()
+
+# class Image(models.Model):
+#   url = models.CharField(max_length = 200);
+#   speech_item = models.ForeignKey(Speech_Item, on_delete = models.CASCADE)
