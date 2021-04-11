@@ -47,12 +47,14 @@
           <div class="card-body">
             <p class="card-text text-center">{{ speech_item.saying }}</p>
           </div>
-          <div class="modify">
-            <img
-              class="card-img-top"
-              src="{% static '/speech_items/delete.png' %}"
-              alt="trash delete icon"
-            />
+
+          <div class="delete">
+            <form action="/delete/{{speech_item.id}}" , method="POST">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger btn-sm mb-2">
+                Delete
+              </button>
+            </form>
           </div>
         </div>
         {% endif %}
