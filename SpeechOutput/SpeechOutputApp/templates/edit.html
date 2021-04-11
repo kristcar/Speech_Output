@@ -51,7 +51,7 @@
           <div class="delete">
             <form action="/delete/{{speech_item.id}}" , method="POST">
               {% csrf_token %}
-              <button type="submit" class="btn btn-danger btn-sm mb-2">
+              <button type="submit" class="btn btn-danger btn-block mb-2">
                 Delete
               </button>
             </form>
