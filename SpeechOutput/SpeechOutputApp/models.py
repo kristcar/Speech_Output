@@ -74,11 +74,13 @@ class SpeechManager(models.Manager):
       errors['saying_long'] = "Name is too long"
     if len(postData['saying']) == 0:
       errors['saying_empty'] = "Name cannot be left empty"
+    if len(postData['url']) == 0:
+      errors['url_empty'] = "URL cannot be left empty"
     return errors
 
 class Speech_Item(models.Model):
   saying = models.CharField(max_length = 300, default = "");
-  url = models.CharField(max_length = 300, default = "{% static '/speech_items/default.png' %}");
+  url = models.CharField(max_length = 300, default = "");
   # category = models.CharField(max_length= 100);
   creator = models.ForeignKey(User, related_name = "user_speech_item", on_delete = models.CASCADE)
   created_at = models.DateTimeField(auto_now_add=True)
