@@ -44,14 +44,14 @@
           {% csrf_token %}
           <h2>Create a Speech Item</h2>
           <div class="form-group ">
-            <label for="item_name">Name</label>
+            <label for="item_name">Speech Output:</label>
             <input type="text" name="item_name" class="form-control" />
           </div>
-          
-          <div class="mb-3">
-            <label for="formFile" class="form-label">Upload a photo</label>
-            <input class="form-control" type="file" id="formFile">
+          <div class="form-group ">
+            <label for="item_url">Image URL:</label>
+            <input type="text" name="url" class="form-control" />
           </div>
+
           <div class="d-flex justify-content-center">
             <button type="submit" class="btn btn-success">Add</button>
           </div>

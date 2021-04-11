@@ -141,21 +141,23 @@
           </div>
         </div>
 
-        
+      
       <div class = "custom_items">
         <h6>Custom Topics:</h6>
-        {% for speech_item in all_speech_items %}
+        {% for speech_item in all_speech_items %}  
         <div class="speech_item m-2 align-top" style="width: 6rem">
           <img
             class="card-img-top"
-            src="{{speech_item.image.url}}"
-            alt="{{speech_item.name}}"
+            src="{{ speech_item.url }}"
+            alt="{{ speech_item.name }}"
           />
           <div class="card-body">
-            <p class="card-text text-center">{{speech_item.name}}</p>
+            <p class="card-text text-center">{{ speech_item.name }}</p>
           </div>
         </div>
+        {% endfor %}
       </div>
+
         <!-- TEMPLATE   LOAD ALL SPEECH ITEMS
         <div class="speech_item m-2 align-top" style="width: 6rem">
           <img
