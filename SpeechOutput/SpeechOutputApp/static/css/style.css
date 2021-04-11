@@ -82,3 +82,8 @@
   border-radius: 20px;
   background-color: rgb(140, 159, 245);
 }
+
+.modify img {
+  display: inline-block;
+  width: 30px;
+}
