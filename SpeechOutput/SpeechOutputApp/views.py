@@ -110,4 +110,19 @@ def create(request):
         )
       return redirect("/home")
 
-# 
+def delete(request, speech_id):
+
+  if "user_id" not in request.session: 
+    messages.error(request, "Please log in or register")
+    return redirect('/')
+
+  #verify speech_id passed is valid
+  speech_items_with_id = Speech_Item.objects.filter(id = speech_id)
+  if len(speech_items_with_id) == 0: #not in database
+    return redirect('/edit')
+
+  if request.method == "POST":
+    speech_item_to_delete=Speech_Item.objects.filter(id = speech_id)
+    speech_item_to_delete.delete()
+
+  return redirect("/edit")  
