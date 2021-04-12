@@ -160,19 +160,6 @@
           {% endif %}
         {% endfor %}
       </div>
-
-        <!-- TEMPLATE   LOAD ALL SPEECH ITEMS
-        <div class="speech_item m-2 align-top" style="width: 6rem">
-          <img
-            class="card-img-top"
-            src="{% static '/speech_items/IMAGE_USER_UPLOADS.png' %}"
-            alt="SPEECH_ITEM_NAME"
-          />
-          <div class="card-body">
-            <p class="card-text text-center">SPEECH ITEM NAME</p>
-          </div>
-        </div> -->
-
       <div class="footer">
         <a href="/add">
           <button type="button" class="btn btn-primary">Add</button>
@@ -181,10 +168,18 @@
           <button type="button" class="btn btn-primary">Edit</button>
         </a>
       </div>
-
-
-
     </div>
     <script src="{% static '/js/speechSynthesisPicture.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      $(".speech_item").hover(function(){
+        $(this).css("background-color", "#ccd5ff");
+        }, function(){
+        $(this).css("background-color", "transparent");
+      });
+    });
+    </script>
+    
   </body>
 </html>
