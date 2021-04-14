@@ -23,16 +23,25 @@
           alt="My Voice Logo"
           class="header_login_logo"
         />
-        
-        <a href="/pictureToSpeak">
-          <button type = "button" class="btn btn-info my-2 my-sm-0">Picture to Speech</button>
+        <a href = "/logout">
+          <button type="submit" class="btn btn-link">Log Out</button>
         </a>
       </div>
-      
 
-      <div class = "row">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary mt-4">
+        <a class="navbar-brand" href="#"
+          >{{current_user.first_name}}, type to speak!</a>
+          <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <a class="form-inline my-2 my-lg-0" href="/home">
+              <button type="button" class="btn btn-primary">Home</button>
+            </a>
+          </div>
+      </nav>
+
+      <div class = "row mt-4">
         <div class = "col-md-6 mx-auto">
-          <h5 >{{current_user.first_name}}, type to speak!</h5>
           <form class = "mb-5">
             <div class="form-group">
               <textarea
@@ -43,10 +52,10 @@
               ></textarea>
             </div>
             <div class = "form-group">
-              <p>Select voice:</p>
+              <p>Change voice:</p>
               <select id="voice-select" class="form-control"></select>
             </div>
-            <button type="submit" class="btn btn-primary btn-block mt-2">
+            <button type="submit" class="btn btn-info btn-block mt-2">
               Speak
             </button>
             </div>

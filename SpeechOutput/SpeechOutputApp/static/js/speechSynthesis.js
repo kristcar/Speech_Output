@@ -94,7 +94,7 @@ const speak = () => {
 textForm.addEventListener("submit", (e) => {
   e.preventDefault();
   speak();
-  textInput.clear();
+  textInput.blur();
 });
 
 // Voice select change for type to speak
