@@ -23,33 +23,35 @@
           alt="My Voice Logo"
           class="header_login_logo"
         />
-        <a href = "/logout">
+        <a href="/logout">
           <button type="submit" class="btn btn-link">Log Out</button>
         </a>
       </div>
 
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary mt-4">
         <a class="navbar-brand" href="#"
-          >{{current_user.first_name}}, speak to get text!</a>
-          <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav mr-auto">
-            </ul>
-            <a class="form-inline my-2 my-lg-0" href="/home">
-              <button type="button" class="btn btn-primary">Home</button>
-            </a>
-          </div>
+          >{{current_user.first_name}}, speak to get text!</a
+        >
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav mr-auto"></ul>
+          <a class="form-inline my-2 my-lg-0" href="/home">
+            <button type="button" class="btn btn-primary">Home</button>
+          </a>
+        </div>
       </nav>
 
-      <div class = "text-center mt-5">
-        Text Output:
+      <h4 class="text-center mt-5">Text Output:</h4>
+
+      <div class="form-group">
+        <textarea id="generated_text" rows="6" class="form-control"></textarea>
       </div>
-      <form>
-        <div class = "form-group">
-          <textarea id = "generated_text" rows = "6" class = "form-control"></textarea>
-        </div>
-        <button id = "start_button" class = "btn btn-info btn-block">Start Speaking</button>
-        <p id = "instructions">Please press the "Start Speaking" button when ready to generate text.</p>
-      </form>
+      <button type="submit" id="start_button" class="btn btn-info btn-block">
+        Start Speaking
+      </button>
+      <p id="instructions" class="text-center mt-3">
+        Please press the "Start Speaking" button when ready to generate text.
+      </p>
+    </div>
   </body>
   <script src="{% static '/js/speechToText.js' %}"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
