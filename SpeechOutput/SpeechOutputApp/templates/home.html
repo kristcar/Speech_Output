@@ -31,25 +31,29 @@
 
       <div class="jumbotron">
         <h1 class="display-3">Welcome, {{current_user.first_name}}!</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <p class="lead">My Voice is a multi-faceted communication device that gives a voice to all.</p>
         <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <p>Please select one of the buttons below to choose how you want to communicate:</p>
         <p class="lead">
           <div class="options">
-            <button type="button" class="btn btn-primary btn-lg btn-block">
-              Picture to Speak
-            </button>
-            <button type="button" class="btn btn-info btn-lg btn-block">
-              Type to Speak
-            </button>
-            <button type="button" class="btn btn-danger btn-lg btn-block">
-              Speak to Text
-            </button>
+            <a href = "/pictureToSpeak">
+              <button type="button" class="btn btn-primary btn-lg btn-block mb-2">
+                Picture to Speak
+              </button>
+            </a>
+            <a href = "/typeToSpeak">
+              <button type="button" class="btn btn-info btn-lg btn-block mb-2">
+                Type to Speak
+              </button>
+            </a>
+            <a href = "/speakToText">
+              <button type="button" class="btn btn-danger btn-lg btn-block mb-2">
+                Speak to Text
+              </button>
+            </a>
           </div>
         </p>
       </div>
-
-      
     </div>
   </body>
 </html>
