@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Voice</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+    <link href="{% static '/img/favicon.png' %}" rel="icon" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header mb-4">
+        <img
+          src="{% static '/img/MyVoiceLogo.png' %}"
+          alt="My Voice Logo"
+          class="header_login_logo"
+        />
+        <form action="/logout" method="GET">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-link">Log Out</button>
+        </form>
+      </div>
+
+      <div class="jumbotron">
+        <h1 class="display-3">Welcome, {{current_user.first_name}}!</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <p class="lead">
+          <div class="options">
+            <button type="button" class="btn btn-primary btn-lg btn-block">
+              Picture to Speak
+            </button>
+            <button type="button" class="btn btn-info btn-lg btn-block">
+              Type to Speak
+            </button>
+            <button type="button" class="btn btn-danger btn-lg btn-block">
+              Speak to Text
+            </button>
+          </div>
+        </p>
+      </div>
+
+      
+    </div>
+  </body>
+</html>

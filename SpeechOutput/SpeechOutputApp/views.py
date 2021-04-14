@@ -69,7 +69,16 @@ def pictureSpeak(request):
     "current_user": User.objects.get(id = request.session['user_id']),
     "all_speech_items": Speech_Item.objects.all(),
   }
-  return render(request, 'index.html', context)
+  return render(request, 'picToSpeak.html', context)
+
+def home(request):
+  if "user_id" not in request.session: 
+    messages.error(request, "Please log in or register")
+    return redirect('/')
+  context = {
+    "current_user": User.objects.get(id = request.session['user_id']),
+  }
+  return render(request, 'home.html', context)
 
 def add(request):
   if "user_id" not in request.session: 
@@ -106,7 +115,7 @@ def create(request):
         url = request.POST['url'],
         creator = User.objects.get(id = request.session['user_id']),
         )
-      return redirect("/home")
+      return redirect("/pictureToSpeak")
 
 def delete(request, speech_id):
 
@@ -127,5 +136,5 @@ def delete(request, speech_id):
 
 def demo(request):
 
-  return redirect('/home')
+  return redirect('/pictureToSpeak')
 
