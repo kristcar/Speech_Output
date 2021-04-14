@@ -9,6 +9,7 @@ urlpatterns = [
   path('home', views.home),
   path('pictureToSpeak', views.pictureSpeak),
   path('typeToSpeak', views.typeToSpeak),
+  path('speakToText', views.speakToText),
   path('add', views.add),
   path('create', views.create),
   path('edit', views.edit),
