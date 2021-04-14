@@ -12,7 +12,7 @@
       crossorigin="anonymous"
     />
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
     <link href="{% static '/img/favicon.png' %}" rel="icon" />
   </head>
   <body>
@@ -23,18 +23,56 @@
           alt="My Voice Logo"
           class="header_login_logo"
         />
-        <h3>Welcome, {{current_user.first_name}}!</h3>
-        <a href="/typeToSpeak">
-          <button type="button" class="btn btn-primary">
-            Type to Speak
-          </button></a
-        >
         <form action="/logout" method="GET">
           {% csrf_token %}
           <button type="submit" class="btn btn-link">Log Out</button>
         </form>
       </div>
-      <div class="form-group">
+
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+          <a class="navbar-brand" href="#">Welcome, {{current_user.first_name}}!</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/home">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/add">Add</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/edit">Edit</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+              <a href="/typeToSpeak">
+                <button type = "button" class="btn btn-info my-2 my-sm-0">Type to Speak</button>
+              </a>
+            </form>
+          </div>
+        </nav>
+
+
+        <!-- <a href="/typeToSpeak">
+          <button type="button" class="btn btn-primary">
+            Type to Speak
+          </button></a
+        > -->
+        <!-- <form action="/logout" method="GET">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-link">Log Out</button>
+        </form> -->
+      
+      <div class="form-group mt-4">
         <p>Select voice:</p>
         <select id="voice-select" class="form-control"></select>
       </div>
@@ -160,14 +198,14 @@
           {% endif %}
         {% endfor %}
       </div>
-      <div class="footer">
+      <!-- <div class="footer">
         <a href="/add">
           <button type="button" class="btn btn-primary">Add</button>
         </a>
         <a href="/edit">
           <button type="button" class="btn btn-primary">Edit</button>
         </a>
-      </div>
+      </div> -->
     </div>
     <script src="{% static '/js/speechSynthesisPicture.js' %}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

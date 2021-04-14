@@ -2,7 +2,6 @@ from django.shortcuts import redirect, render
 from .models import *
 from django.contrib import messages
 import bcrypt
- 
 
 #************************LOGIN AND REGISTRATION********************
 
@@ -127,4 +126,6 @@ def delete(request, speech_id):
   return redirect("/edit")  
 
 def demo(request):
-  pass
+
+  return redirect('/home')
+

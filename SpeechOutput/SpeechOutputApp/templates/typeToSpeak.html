@@ -12,7 +12,7 @@
       crossorigin="anonymous"
     />
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
     <link href="{% static '/img/favicon.png' %}" rel="icon" />
   </head>
   <body>
@@ -23,12 +23,16 @@
           alt="My Voice Logo"
           class="header_login_logo"
         />
-        <a href = "/home">
-        <button type="button" class="btn btn-link">Back</button></a>
+        
+        <a href="/home">
+          <button type = "button" class="btn btn-info my-2 my-sm-0">Picture to Speech</button>
+        </a>
       </div>
-      <h5 >{{current_user.first_name}}, type to speak!</h5>
+      
+
       <div class = "row">
         <div class = "col-md-6 mx-auto">
+          <h5 >{{current_user.first_name}}, type to speak!</h5>
           <form class = "mb-5">
             <div class="form-group">
               <textarea
@@ -42,7 +46,7 @@
               <p>Select voice:</p>
               <select id="voice-select" class="form-control"></select>
             </div>
-            <button type="submit" class="btn btn-success btn-block mt-2">
+            <button type="submit" class="btn btn-primary btn-block mt-2">
               Speak
             </button>
             </div>

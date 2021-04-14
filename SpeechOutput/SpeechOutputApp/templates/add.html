@@ -12,7 +12,7 @@
     />
     <title>My Voice</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
     <link href="{% static '/img/favicon.png' %}" rel="icon" />
   </head>
   <body>
@@ -42,8 +42,8 @@
         <form action="/create" method="POST">
           {% csrf_token %}
           <h2>Create a Speech Item</h2>
-          <div class="form-group ">
-            <label for="saying">Speech Output:</label>
+          <div class="form-group">
+            <label for="saying">What do you want to say?</label>
             <input type="text" name="saying" class="form-control" />
           </div>
           <div class="form-group ">
@@ -52,7 +52,7 @@
           </div>
 
           <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-success">Add</button>
+            <button type="submit" class="btn btn-primary">Add</button>
           </div>
 
           <!-- <div class="form-group ">
