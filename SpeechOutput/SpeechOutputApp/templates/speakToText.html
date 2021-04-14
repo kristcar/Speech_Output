@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Voice</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+    <link href="{% static '/img/favicon.png' %}" rel="icon" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <img
+          src="{% static '/img/MyVoiceLogo.png' %}"
+          alt="My Voice Logo"
+          class="header_login_logo"
+        />
+        <a href = "/logout">
+          <button type="submit" class="btn btn-link">Log Out</button>
+        </a>
+      </div>
+
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary mt-4">
+        <a class="navbar-brand" href="#"
+          >{{current_user.first_name}}, speak to get text!</a>
+          <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <a class="form-inline my-2 my-lg-0" href="/home">
+              <button type="button" class="btn btn-primary">Home</button>
+            </a>
+          </div>
+      </nav>
+
+      <div class = "text-center mt-5">
+        Text Output:
+      </div>
+      <form>
+        <div class = "form-group">
+          <textarea id = "generated_text" rows = "6" class = "form-control"></textarea>
+        </div>
+        <button id = "start_button" class = "btn btn-info btn-block">Start Speaking</button>
+        <p id = "instructions">Please press the "Start Speaking" button when ready to generate text.</p>
+      </form>
+  </body>
+  <script src="{% static '/js/speechToText.js' %}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</html>
