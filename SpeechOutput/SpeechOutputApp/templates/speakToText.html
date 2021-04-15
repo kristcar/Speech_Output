@@ -41,18 +41,14 @@
       </nav>
 
       <h4 class="text-center mt-5">Text Output:</h4>
+      <!-- <p>Be sure to allow access to your microphone!</p>
+      <p>You can edit the text by clicking to add your cursor!</p> -->
 
-      <div class="form-group">
-        <textarea id="generated_text" rows="6" class="form-control"></textarea>
-      </div>
-      <button type="submit" id="start_button" class="btn btn-info btn-block">
-        Start Speaking
-      </button>
-      <p id="instructions" class="text-center mt-3">
-        Please press the "Start Speaking" button when ready to generate text.
-      </p>
-    </div>
+      
+      <div class="words" contenteditable></div>
+
   </body>
   <script src="{% static '/js/speechToText.js' %}"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</html>
+</html> 
+

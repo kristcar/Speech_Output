@@ -1,37 +1,26 @@
-var speechRecognition = window.webkitSpeechRecognition;
-var recognition = new speechRecognition();
-recognition.continuous = true;
+window.SpeechRecognition =
+  window.SpeechRecognition || window.webkitSpeechRecognition;
 
-var instructions = $("#instructions");
-var generated_text = $("#generated_text");
-var content = "";
+const recognition = new SpeechRecognition();
+recognition.interimResults = true;
+recognition.lang = "en-US";
 
-recognition.onstart = function () {
-  instructions.text("Voice Recognition is on!");
-};
+let p = document.createElement("p");
+const words = document.querySelector(".words");
+words.appendChild(p);
 
-recognition.onspeechend = function () {
-  instructions.text("Voice Recognition is off.");
-};
+recognition.addEventListener("result", (e) => {
+  const transcript = Array.from(e.results)
+    .map((result) => result[0])
+    .map((result) => result.transcript)
+    .join("");
 
-recognition.onerror = function () {
-  instructions.text("Cannot detect voice, please try again.");
-};
-
-recognition.onresult = function (event) {
-  var current = event.resultIndex;
-  var transcript = event.results[current][0].transcript; //spoken data
-  content += transcript;
-  generated_text.val(content);
-};
-
-$("#start_button").click(function (event) {
-  if (content.length) {
-    content += "";
+  if (e.results[0].isFinal) {
+    p = document.createElement("p");
+    words.appendChild(p);
   }
-  recognition.start();
 });
 
-generated_text.on("input", function () {
-  content = $(this).val();
-});
+recognition.addEventListener("end", recognition.start);
+
+recognition.start();
