@@ -15,6 +15,9 @@ recognition.addEventListener("result", (e) => {
     .map((result) => result.transcript)
     .join("");
 
+  const smileScript = transcript.replace(/smile emoji/gi, "😊");
+  p.textContent = smileScript;
+
   if (e.results[0].isFinal) {
     p = document.createElement("p");
     words.appendChild(p);
