@@ -26,28 +26,16 @@
         class="login_logo d-flex mx-auto mb-4"
       />
 
-      <div id="message_block">
-        {% if messages %}
-        <class="messages">
-          {% for message in messages %}
-          <p {% if message.tags %} class="{{ message.tags }}" {% endif %}>
-            {{ message }}
-          </p>
-          {% endfor %}
-        
-        {% endif %}
-      </div>
-
-    <div class="login_registration d-flex justify-content-center m-3">
-      <div class = "guest">
-        <div class="d-flex justify-content-center">
-          <form action="/demo" method="POST">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-primary">Demo</button>
-          </form>
+      <div class="login_registration d-flex justify-content-center m-3">
+        <div class = "guest">
+          <div class="d-flex justify-content-center">
+            <form action="/demo" method="POST">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-primary">Demo</button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
 
       <div class="login_registration d-flex justify-content-center">
         <div class="form-group mx-4 align-self-baseline" id="login">
@@ -102,6 +90,20 @@
           </form>
         </div>
       </div>
+      <div id="login_message_block">
+        {% if messages %}
+        <class="messages">
+          <div class="alert alert-danger" id = "login_alert" role="alert">
+            <strong>An error has occurred:</strong>
+            {% for message in messages %}
+            <p {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+              {{ message }}
+            </p>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
     </div>
   </body>
 </html>
