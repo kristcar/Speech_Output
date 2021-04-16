@@ -81,7 +81,6 @@ class SpeechManager(models.Manager):
 class Speech_Item(models.Model):
   saying = models.CharField(max_length = 300, default = "");
   url = models.CharField(max_length = 300, default = "");
-  # category = models.CharField(max_length= 100);
   creator = models.ForeignKey(User, related_name = "user_speech_item", on_delete = models.CASCADE)
   created_at = models.DateTimeField(auto_now_add=True)
   updated_at = models.DateTimeField(auto_now = True)
