@@ -10868,3 +10868,9 @@ a.text-dark:focus {
 .custom_item {
   display: inline-block;
 }
+
+#confetti,
+.home-footer p {
+  display: inline-block;
+  font-style: italic;
+}
