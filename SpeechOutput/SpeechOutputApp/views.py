@@ -52,6 +52,9 @@ def logout(request):
 def catch_all(request, url):
   return redirect('/')
 
+def welcome(request):
+  return render(request, "welcome.html")
+
 def typeToSpeak(request):
   if "user_id" not in request.session: 
     messages.error(request, "Please log in or register")
