@@ -6,7 +6,7 @@ recognition.interimResults = true;
 recognition.lang = "en-US";
 
 let p = document.createElement("p");
-const words = document.querySelector(".words");
+const words = document.querySelector(".speech_output");
 words.appendChild(p);
 
 recognition.addEventListener("result", (e) => {
@@ -27,3 +27,13 @@ recognition.addEventListener("result", (e) => {
 recognition.addEventListener("end", recognition.start);
 
 recognition.start();
+
+// $("#start").on("click", function (e) {
+//   recognition.start();
+// });
+
+// $("#stop").on("click", function (e) {
+//   recognition.stop();
+// });
+
+// $().alert("close");

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Voice</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -37,18 +38,28 @@
           <a class="form-inline my-2 my-lg-0" href="/home">
             <button type="button" class="btn btn-primary">Home</button>
           </a>
+          <button id = "start" class = "btn btn-info mr-1">Start</button>
+          <button id = "stop" class = "btn btn-info">Stop</button>
         </div>
       </nav>
 
+      <div class="alert alert-warning alert-dismissible fade show mt-2" role="alert">
+        <strong>Tip!</strong> Be sure you have allowed microphone access via Google Chrome. 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <p>Use the start and stop buttons to control your browser's listening. Click the generated text to edit.</p>
       <h4 class="text-center mt-5">Text Output:</h4>
-      <!-- <p>Be sure to allow access to your microphone!</p>
-      <p>You can edit the text by clicking to add your cursor!</p> -->
 
-      
-      <div class="words" contenteditable></div>
 
+      <div class="speech_output" contenteditable></div>
+
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
-  <script src="{% static '/js/speechToText.js' %}"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="{% static '/js/speechToText.js' %}"></script>    
 </html> 
 
