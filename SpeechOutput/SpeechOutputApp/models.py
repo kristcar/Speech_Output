@@ -29,7 +29,7 @@ class UserManager(models.Manager):
       if user.email == postData['email']:
         errors['email_exists'] = "An account with this email address exists already."
 
-    if len(postData['first_name']) ==0 or len(postData['last_name']) or len(postData['email']) or len(postData['password']) == 0 or len(postData['conf_password']) == 0:
+    if len(postData['first_name']) ==0 or len(postData['last_name']) ==0 or len(postData['email']) ==0 or len(postData['password']) == 0 or len(postData['conf_password']) == 0:
       errors['empty_fields'] = "Please fill out all Registration fields."
 
     return errors
