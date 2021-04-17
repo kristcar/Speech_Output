@@ -10874,3 +10874,20 @@ a.text-dark:focus {
   display: inline-block;
   font-style: italic;
 }
+
+#welcome_jumbotron {
+  background-color: white;
+}
+
+#pic_to_speak_tutorial,
+#type_to_speak_tutorial,
+#speak_to_text_tutorial {
+  width: 700px;
+}
+
+.scroll-container {
+  width: 350px;
+  height: 200px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
