@@ -58,10 +58,10 @@ class UserManager(models.Manager):
 #************************END LOGIN AND REGISTRATION*******************
 
 class User(models.Model):
-  first_name = models.TextField()
-  last_name = models.TextField()
+  first_name = models.CharField(max_length = 200)
+  last_name = models.CharField(max_length = 200)
   email = models.TextField()
-  password = models.TextField()
+  password = models.CharField(max_length = 200)
   created_at = models.DateTimeField(auto_now_add=True)
   updated_at = models.DateTimeField(auto_now = True)
   objects = UserManager()
@@ -72,10 +72,8 @@ class SpeechManager(models.Manager):
     errors = {}
     if len(postData['saying']) > 300:
       errors['saying_long'] = "Name is too long"
-    if len(postData['saying']) == 0:
-      errors['saying_empty'] = "Name cannot be left empty"
-    if len(postData['url']) == 0:
-      errors['url_empty'] = "URL cannot be left empty"
+    if len(postData['saying']) or len(postData['url']) == 0:
+      errors['saying_url_empty'] = "Please enter both a saying and a URL."
     return errors
 
 class Speech_Item(models.Model):

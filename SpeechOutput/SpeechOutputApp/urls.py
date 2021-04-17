@@ -15,6 +15,6 @@ urlpatterns = [
   path('create', views.create),
   path('edit', views.edit),
   path('delete/<int:speech_id>', views.delete),
-  path('demo', views.demo),
+
   path('<url>', views.catch_all),
 ]

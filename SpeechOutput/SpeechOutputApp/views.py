@@ -15,7 +15,7 @@ def register(request):
     if len(errors) > 0: 
       for key, value in errors.items():
         messages.error(request, value)
-      return redirect("/")
+      return redirect("/login_register")
     else: 
       hashed_pw = bcrypt.hashpw(request.POST['password'].encode(), bcrypt.gensalt()).decode()
       print(hashed_pw)
@@ -23,7 +23,7 @@ def register(request):
       request.session['user_id'] = user.id
       return redirect('/home')
   else:
-    return redirect('/')
+    return redirect('/login_register')
     
 
 def login(request):
@@ -32,7 +32,7 @@ def login(request):
     if len(errors) > 0: 
       for key, value in errors.items():
         messages.error(request, value)
-      return redirect("/")
+      return redirect("/login_register")
     user = User.objects.filter(email=request.POST['email']) 
     if len(user) > 0:
       user = user[0]
@@ -40,7 +40,7 @@ def login(request):
         request.session['user_id'] = user.id
         return redirect('/home')
   messages.error(request, "Email or password is incorrect")
-  return redirect('/')
+  return redirect('/login_register')
 
 
 def logout(request):
@@ -145,8 +145,4 @@ def delete(request, speech_id):
     speech_item_to_delete.delete()
 
   return redirect("/edit")  
-
-def demo(request):
-
-  return redirect('/pictureToSpeak')
 
