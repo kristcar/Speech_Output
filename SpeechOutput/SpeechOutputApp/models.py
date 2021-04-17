@@ -38,13 +38,11 @@ class UserManager(models.Manager):
     errors = {}
     EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
-    if not EMAIL_REGEX.match(postData['email']):
+    if not EMAIL_REGEX.match(postData['email']) and len(postData['email']) != 0:
       errors['login_email'] = "Invalid email address format"
 
-    if len(postData['email']) == 0 :
-      errors['login_email_empty'] = "Email cannot be left empty"
-    if len(postData['password']) == 0 :
-      errors['login_password_empty'] = "Password cannot be left empty"
+    if len(postData['email']) == 0 or len(postData['password']) == 0 :
+      errors['login_email_password_empty'] = "Please enter both an email and a password."
 
     return errors
 #************************END LOGIN AND REGISTRATION*******************
@@ -65,7 +63,7 @@ class SpeechManager(models.Manager):
     if len(postData['saying']) > 300:
       errors['saying_long'] = "Name is too long"
     if len(postData['saying']) or len(postData['url']) == 0:
-      errors['saying_url_empty'] = "Please enter both a saying and a URL."
+      errors['saying_url_empty'] = "Please enter both a saying and an image URL."
     return errors
 
 class Speech_Item(models.Model):
