@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
     <link href="{% static '/img/favicon.png' %}" rel="icon" />
   </head>
-
+  <script></script>
   <body>
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary mt-1">
@@ -46,21 +46,21 @@
               width="300"
               src="{% static '/img/favicon.png' %}"
               alt="my voice logo"
+              id="jumbotron_logo"
             />
           </div>
-          <p class="lead" id="welcome_jumbotron_p">
-            No matter your need, My Voice will meet you where you are. With
-            three communication options, My Voice is the right choice for you.
-          </p>
+          <p class="lead" id="welcome_jumbotron_p"></p>
 
           <hr class="my-4" />
-          <p>
+          <p class="lead">
+            No matter your need, My Voice will meet you where you are. With
+            three communication options, My Voice is the right choice for you.
             Choose between Type to Speak, Speech to Text and Picture to Speech
             options.
           </p>
           <p class="lead">
             <a class="btn btn-info btn-lg" href="/login_register" role="button"
-              >Try Now</a
+              >Sign Up Now</a
             >
           </p>
         </div>
@@ -71,7 +71,7 @@
         <h3 class="mt-5">Picture to Speech</h3>
         <div class="d-flex shadow p-3 mb-5 bg-white rounded pic_to_speak">
           <img
-            src="{% static '/img/pic_to_speak.png' %}"
+            src="{% static '/img/pic_speak.gif' %}"
             alt="tutorial on picture to speak page"
             id="pic_to_speak_tutorial"
           />
@@ -79,14 +79,14 @@
             A great choice for the nonverbal community, this picture
             communication device serves as a great replacement to the picture
             exchange communication binder. Create your own speech items with
-            photos and speak with just the click of a button!
+            custom photos and speak with just the click of a button!
           </p>
         </div>
 
         <h3 class="mt-5">Type to Speak</h3>
         <div class="d-flex shadow p-3 mb-5 bg-white rounded type_to_speak">
           <img
-            src="{% static '/img/type_to_speak.png' %}"
+            src="{% static '/img/type_speak.gif' %}"
             alt="tutorial on type to speak page"
             id="type_to_speak_tutorial"
           />
@@ -99,14 +99,14 @@
         <h3 class="mt-5">Speech to Text</h3>
         <div class="d-flex shadow p-3 mb-5 bg-white rounded speech_to_text">
           <img
-            src="{% static '/img/speak_to_text.png' %}"
+            src="{% static '/img/speech_text.gif' %}"
             alt="tutorial on speak to text"
             id="speak_to_text_tutorial"
           />
           <p class="align-self-center ml-1">
             Have trouble typing? Use the Speech to Text feature to convert
             spoken words into text. You can even edit in place as you type to
-            make sure you capture everything said.
+            make sure you capture everything just right.
           </p>
         </div>
       </div>
@@ -123,18 +123,18 @@
             one of whom is nonverbal. My family and I have seen firsthand how
             crucial communication devices can be in new and unfamiliar
             situations. For years, my sister has used a picture exchange
-            communication book (pictured). However, this is limited and only has
-            the absolute basics. My Voice provides customizable pictures and
-            sayings that is easy to implement and edit on the go.
+            communication book (pictured) to communicate. However, this is
+            limited and only has the absolute basics. My Voice provides
+            customizable pictures and sayings that is easy to use and edit on
+            the go.
           </p>
 
           <p>
-            In this day and age of technology, you would think there would be a
-            surplus of options like this on the market, but unfortunately there
-            are very few and what is out there is both expensive and dated. The
-            goal of My Voice is to create a free communication device that is
-            easy to use and meets you where you are, helping you communicate at
-            any level.
+            A product like My Voice is something I have looked for for years,
+            especially one with a customizable aspect that is also affordable.
+            The goal of My Voice is to create a free communication device that
+            is easy to use and meets you where you are, helping you communicate
+            at any level.
           </p>
         </div>
         <img
