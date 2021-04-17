@@ -10,16 +10,16 @@ class UserManager(models.Manager):
     errors = {}
     EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
-    if not EMAIL_REGEX.match(postData['email']):
+    if not EMAIL_REGEX.match(postData['email']) and len(postData['email']) != 0:
       errors['email'] = "Invalid email address format"
 
-    if len(postData['first_name']) < 2:
+    if len(postData['first_name']) < 2 and len(postData['first_name']) != 0:
       errors['first_name_short'] = "First name must be at least 2 characters"
 
-    if len(postData['last_name']) < 2:
+    if len(postData['last_name']) < 2 and len(postData['last_name']) != 0:
       errors['last_name_short'] = "Last name must be at least 2 characters"
       
-    if len(postData['password']) < 8:
+    if len(postData['password']) < 8 and len(postData['password']) != 0:
       errors['password_short'] = "Password must be at least 8 characters"
 
     if postData['password'] != postData['conf_password']:
@@ -29,17 +29,9 @@ class UserManager(models.Manager):
       if user.email == postData['email']:
         errors['email_exists'] = "An account with this email address exists already."
 
-    if len(postData['first_name']) ==0:
-      errors['first_name_empty'] = "First name cannot be left empty"
-    if len(postData['last_name']) ==0:
-      errors['last_name_empty'] = "Last name cannot be left empty"
-    if len(postData['email']) == 0 :
-      errors['email_empty'] = "Email cannot be left empty"
-    if len(postData['password']) == 0 :
-      errors['password_empty'] = "Password cannot be left empty"
-    if len(postData['conf_password']) == 0 :
-      errors['conf_password_empty'] = "Confirm Password cannot be left empty"
-      
+    if len(postData['first_name']) ==0 or len(postData['last_name']) or len(postData['email']) or len(postData['password']) == 0 or len(postData['conf_password']) == 0:
+      errors['empty_fields'] = "Please fill out all Registration fields."
+
     return errors
 
   def login_validator(self, postData):
