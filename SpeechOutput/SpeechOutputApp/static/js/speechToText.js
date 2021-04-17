@@ -1,3 +1,12 @@
+// //Utilizing the Web Speech API
+
+//Browser identifier
+// Firefox 1.0+
+var isFirefox = typeof InstallTrigger !== "undefined";
+
+// Chrome 1+
+var isChrome = !!window.chrome && !!window.chrome.webstore;
+
 window.SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
 
@@ -27,13 +36,3 @@ recognition.addEventListener("result", (e) => {
 recognition.addEventListener("end", recognition.start);
 
 recognition.start();
-
-// $("#start").on("click", function (e) {
-//   recognition.start();
-// });
-
-// $("#stop").on("click", function (e) {
-//   recognition.stop();
-// });
-
-// $().alert("close");
