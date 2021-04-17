@@ -10891,3 +10891,7 @@ a.text-dark:focus {
   overflow-y: scroll;
   scroll-behavior: smooth;
 }
+
+#login_message_block {
+  width: 400px;
+}
