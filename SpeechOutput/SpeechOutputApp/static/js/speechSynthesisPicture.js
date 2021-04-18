@@ -66,6 +66,11 @@ if ("speechSynthesis" in window) {
         speakText.voice = voice;
       }
     });
+
+    if (synth.speaking) {
+      console.error("Already speaking...");
+      return;
+    }
     synth.speak(speakText);
 
     window.onbeforeunload = function () {
