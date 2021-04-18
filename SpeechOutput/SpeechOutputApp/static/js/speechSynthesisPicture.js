@@ -1,4 +1,4 @@
-// //Utilizing the Web Speech API
+// //Utilizing the Web Speech API for Picture to Speech page
 
 //Browser identifier
 // Firefox 1.0+

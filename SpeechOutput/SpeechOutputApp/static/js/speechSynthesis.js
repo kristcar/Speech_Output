@@ -1,4 +1,4 @@
-// //Utilizing the Web Speech API
+// //Utilizing the Web Speech API for Type to Speak page
 
 // Init SpeechSynth API
 const synth = window.speechSynthesis;

@@ -1,4 +1,4 @@
-//Utilizing the Web Speech API
+//Utilizing the Web Speech API for Speech to Text page
 
 //Browser identifier
 // Firefox 1.0+
