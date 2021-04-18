@@ -55,7 +55,7 @@ def catch_all(request, url):
 def welcome(request):
   return render(request, "welcome.html")
 
-def typeToSpeak(request):
+def type_to_speak(request):
   if "user_id" not in request.session: 
     messages.error(request, "Please log in or register")
     return redirect('/')
@@ -64,7 +64,7 @@ def typeToSpeak(request):
   }
   return render(request,"typeToSpeak.html", context)
 
-def pictureSpeak(request):
+def picture_speak(request):
   if "user_id" not in request.session: 
     messages.error(request, "Please log in or register")
     return redirect('/')
@@ -74,7 +74,7 @@ def pictureSpeak(request):
   }
   return render(request, 'picToSpeak.html', context)
 
-def speakToText(request):
+def speak_to_text(request):
   if "user_id" not in request.session: 
     messages.error(request, "Please log in or register")
     return redirect('/')  
