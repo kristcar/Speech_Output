@@ -33,6 +33,10 @@ recognition.addEventListener("result", (e) => {
   }
 });
 
-recognition.addEventListener("end", recognition.start);
+$("#start").on("click", function (e) {
+  recognition.start();
+});
 
-recognition.start();
+$("#stop").on("click", function (e) {
+  recognition.stop();
+});
