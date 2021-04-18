@@ -62,7 +62,7 @@ class SpeechManager(models.Manager):
     errors = {}
     if len(postData['saying']) > 300:
       errors['saying_long'] = "Name is too long"
-    if len(postData['saying']) or len(postData['url']) == 0:
+    if len(postData['saying']) == 0 or len(postData['url']) == 0:
       errors['saying_url_empty'] = "Please enter both a saying and an image URL."
     return errors
 

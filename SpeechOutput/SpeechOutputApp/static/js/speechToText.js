@@ -1,4 +1,4 @@
-// //Utilizing the Web Speech API
+//Utilizing the Web Speech API
 
 //Browser identifier
 // Firefox 1.0+
@@ -7,36 +7,48 @@ var isFirefox = typeof InstallTrigger !== "undefined";
 // Chrome 1+
 var isChrome = !!window.chrome && !!window.chrome.webstore;
 
-window.SpeechRecognition =
-  window.SpeechRecognition || window.webkitSpeechRecognition;
+if ("webkitSpeechRecognition" in window) {
+  let recognition = new webkitSpeechRecognition();
 
-const recognition = new SpeechRecognition();
-recognition.interimResults = true;
-recognition.lang = "en-US";
+  let final_transcript = "";
 
-let p = document.createElement("p");
-const words = document.querySelector(".speech_output");
-words.appendChild(p);
+  recognition.continuous = true;
+  recognition.interimResults = true;
+  recognition.lang = "en-US";
 
-recognition.addEventListener("result", (e) => {
-  const transcript = Array.from(e.results)
-    .map((result) => result[0])
-    .map((result) => result.transcript)
-    .join("");
+  recognition.onstart = () => {
+    document.querySelector("#status").style.display = "block";
+  };
+  recognition.onerror = () => {
+    document.querySelector("#status").style.display = "none";
+  };
+  recognition.onend = () => {
+    document.querySelector("#status").style.display = "none";
+  };
 
-  const smileScript = transcript.replace(/smile emoji/gi, "😊");
-  p.textContent = smileScript;
+  recognition.onresult = (event) => {
+    let interim_transcript = "";
 
-  if (e.results[0].isFinal) {
-    p = document.createElement("p");
-    words.appendChild(p);
-  }
-});
+    for (let i = event.resultIndex; i < event.results.length; ++i) {
+      if (event.results[i].isFinal) {
+        final_transcript += " " + event.results[i][0].transcript;
+      } else {
+        interim_transcript += " " + event.results[i][0].transcript;
+      }
+    }
 
-$("#start").on("click", function (e) {
-  recognition.start();
-});
+    //Add transcript to HTML
+    document.querySelector("#final").innerHTML = final_transcript;
+    document.querySelector("#interim").innerHTML = interim_transcript;
+  };
 
-$("#stop").on("click", function (e) {
-  recognition.stop();
-});
+  // Start and Stop Listening Buttons
+  document.querySelector("#start").onclick = () => {
+    recognition.start();
+  };
+  document.querySelector("#stop").onclick = () => {
+    recognition.stop();
+  };
+} else {
+  console.log("Speech Recognition Not Available");
+}
