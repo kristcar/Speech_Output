@@ -99,3 +99,8 @@ textForm.addEventListener("submit", (e) => {
 
 // Voice select change for type to speak
 voiceSelect.addEventListener("change", (e) => speak());
+
+window.onbeforeunload = function () {
+  //If user left the page and speaking is in progress, stop browser speaking
+  synth.cancel();
+};

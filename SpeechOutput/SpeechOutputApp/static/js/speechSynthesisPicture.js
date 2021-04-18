@@ -67,5 +67,10 @@ if ("speechSynthesis" in window) {
       }
     });
     synth.speak(speakText);
+
+    window.onbeforeunload = function () {
+      //If user left the page and speaking is in progress, stop browser speaking
+      synth.cancel();
+    };
   }
 }
