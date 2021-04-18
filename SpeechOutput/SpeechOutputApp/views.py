@@ -58,7 +58,7 @@ def welcome(request):
 def type_to_speak(request):
   if "user_id" not in request.session: 
     messages.error(request, "Please log in or register")
-    return redirect('/')
+    return redirect('/login_register')
   context = {
     "current_user": User.objects.get(id = request.session['user_id']),
   }
@@ -67,7 +67,7 @@ def type_to_speak(request):
 def picture_speak(request):
   if "user_id" not in request.session: 
     messages.error(request, "Please log in or register")
-    return redirect('/')
+    return redirect('/login_register')
   context = {
     "current_user": User.objects.get(id = request.session['user_id']),
     "all_speech_items": Speech_Item.objects.all(),
@@ -77,7 +77,7 @@ def picture_speak(request):
 def speak_to_text(request):
   if "user_id" not in request.session: 
     messages.error(request, "Please log in or register")
-    return redirect('/')  
+    return redirect('/login_register')  
   context = {
     "current_user": User.objects.get(id = request.session['user_id']),
   }
@@ -86,7 +86,7 @@ def speak_to_text(request):
 def home(request):
   if "user_id" not in request.session: 
     messages.error(request, "Please log in or register")
-    return redirect('/')
+    return redirect('/login_register')
   context = {
     "current_user": User.objects.get(id = request.session['user_id']),
   }
@@ -95,7 +95,7 @@ def home(request):
 def add(request):
   if "user_id" not in request.session: 
     messages.error(request, "Please log in or register")
-    return redirect('/')
+    return redirect('/login_register')
   context = {
     "current_user": User.objects.get(id = request.session['user_id']),
   }
@@ -104,7 +104,7 @@ def add(request):
 def edit(request):
   if "user_id" not in request.session: 
     messages.error(request, "Please log in or register")
-    return redirect('/')
+    return redirect('/login_register')
   context = {
     "all_speech_items": Speech_Item.objects.all(),
     "current_user": User.objects.get(id = request.session['user_id']),
@@ -114,7 +114,7 @@ def edit(request):
 def create(request):
   if "user_id" not in request.session: 
     messages.error(request, "Please log in or register")
-    return redirect('/')
+    return redirect('/login_register')
   if request.method == "POST":
     errors = Speech_Item.objects.speech_validator(request.POST)
     if len(errors) > 0: 
@@ -133,7 +133,7 @@ def delete(request, speech_id):
 
   if "user_id" not in request.session: 
     messages.error(request, "Please log in or register")
-    return redirect('/')
+    return redirect('/login_register')
 
   #verify speech_id passed is valid
   speech_items_with_id = Speech_Item.objects.filter(id = speech_id)

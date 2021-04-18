@@ -18,11 +18,13 @@
   <body>
     <div class="container">
       <div class="header mb-4">
-        <img
-          src="{% static '/img/MyVoiceLogo.png' %}"
-          alt="My Voice Logo"
-          class="header_login_logo"
-        />
+        <a href = "/home">
+          <img
+            src="{% static '/img/MyVoiceLogo.png' %}"
+            alt="My Voice Logo"
+            class="header_login_logo"
+          />
+        </a>
         <form action="/logout" method="GET">
           {% csrf_token %}
           <button type="submit" class="btn btn-link">Log Out</button>
