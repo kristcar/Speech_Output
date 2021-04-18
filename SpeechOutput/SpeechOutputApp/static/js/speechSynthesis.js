@@ -63,12 +63,12 @@ const speak = () => {
 
     // Speak end
     speakText.onend = (e) => {
-      console.log("Done speaking...");
+      console.log("Finished speaking");
     };
 
     // Speak error
     speakText.onerror = (e) => {
-      console.error("Something went wrong");
+      console.error("An error has occurred");
     };
 
     // Selected voice
